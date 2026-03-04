@@ -1,16 +1,58 @@
-# React + Vite
+# DigitalAgency 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DigitalAgency is a modern and fully responsive digital agency website built using React and Tailwind CSS.  
+The project includes smooth animations, theme switching (Dark & Light mode), and working email integration for contact and newsletter subscriptions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Built with React
+- Styled using Tailwind CSS
+- Light & Dark Theme Support
+- Smooth Animations using Framer Motion
+- Contact Form with Email Integration
+- Newsletter Subscription System
+- Admin receives emails for:
+  - Contact form submissions
+  - Newsletter subscriptions
+- Responsive (Mobile & Desktop)
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Tailwind CSS
+- Framer Motion
+- Web3Forms (Email Handling)
 
-## Expanding the ESLint configuration
+## 📸 Screenshots
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> Note: The screenshots below showcase the Dark Theme version of the website.
+
+### 🏠 Home Section
+![Home](./screenshots/home.png)
+
+### 🛠 Services Section
+![Services](./screenshots/services.png)
+
+### 💼 Our Work Section
+![Our Work](./screenshots/ourwork.png)
+
+### 📩 Contact Us Section
+![Contact Us](./screenshots/contactus.png)
+
+### 📌 Footer Section
+![Footer](./screenshots/footer.png)
+
+### 📬 Admin Email - Contact Form
+![Admin Email 1](./screenshots/email_1.png)
+
+### 📬 Admin Email - Newsletter Subscription
+![Admin Email 2](./screenshots/email_2.png)
+
+
+## 📂 Installation
+
+```bash
+git clone https://github.com/pradeep-lab-code/DigitalAgency.git
+cd DigitalAgency
+npm install
+npm run dev
