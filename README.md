@@ -56,3 +56,11 @@ git clone https://github.com/pradeep-lab-code/DigitalAgency.git
 cd DigitalAgency
 npm install
 npm run dev
+
+## 🔐 Environment Variables
+
+To run this project locally, create a `.env` file in the root directory and add:
+
+VITE_WEB3FORMS_KEY=your_web3forms_access_key_here
+
+You can get your access key from Web3Forms dashboard.
