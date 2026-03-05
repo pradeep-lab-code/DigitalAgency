@@ -5,12 +5,44 @@ import toast from "react-hot-toast";
 import { motion } from "motion/react";
 
 const ContactUs = () => {
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
+
     const formData = new FormData(event.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    // Validation
+    if (!name || name.trim() === "") {
+      toast.error("Please enter your name");
+      return;
+    }
+
+    if (!email || email.trim() === "") {
+      toast.error("Please enter your email");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email");
+      return;
+    }
+
+    if (!message || message.trim() === "") {
+      toast.error("Please enter your message");
+      return;
+    }
+
     formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
     formData.append("subject", "New Contact Form Message");
     formData.append("from_name", "Digital Agency Website");
+
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -18,16 +50,19 @@ const ContactUs = () => {
       });
 
       const data = await response.json();
+
       if (data.success) {
         toast.success("Message sent successfully!");
         event.target.reset();
       } else {
         toast.error(data.message || "Something went wrong!");
       }
+
     } catch (error) {
       toast.error(error.message || "Something went wrong!");
     }
   };
+
   return (
     <motion.div
       initial="hidden"
@@ -41,6 +76,7 @@ const ContactUs = () => {
         title="Reach out to us"
         desc="Have questions or want to work with us? Get in touch with our team and we'll be happy to help you."
       />
+
       <motion.form
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -49,6 +85,7 @@ const ContactUs = () => {
         onSubmit={onSubmit}
         className="grid sm:grid-cols-2 gap-3 sm:gap-5 max-w-2xl w-full"
       >
+
         <div>
           <p className="mb-2 text-sm font-medium">Your name</p>
           <div className="flex pl-3 rounded-lg border border-gray-300 dark:border-gray-600">
@@ -61,6 +98,7 @@ const ContactUs = () => {
             />
           </div>
         </div>
+
         <div>
           <p className="mb-2 text-sm font-medium">Email id</p>
           <div className="flex pl-3 rounded-lg border border-gray-300 dark:border-gray-600">
@@ -73,6 +111,7 @@ const ContactUs = () => {
             />
           </div>
         </div>
+
         <div className="sm:col-span-2">
           <p className="mb-2 text-sm font-medium">Message</p>
           <textarea
@@ -82,12 +121,14 @@ const ContactUs = () => {
             className="w-full p-3 text-sm outline-none rounded-lg border border-gray-300 dark:border-gray-600"
           ></textarea>
         </div>
+
         <button
           type="submit"
           className="w-max flex gap-2 bg-primary text-white text-sm px-10 py-3 rounded-full cursor-pointer hover:scale-103 transition-all"
         >
           Submit <img src={assets.arrow_icon} alt="" className="w-4" />
         </button>
+
       </motion.form>
     </motion.div>
   );
