@@ -3,8 +3,6 @@
 DigitalAgency is a modern and fully responsive digital agency website built using React and Tailwind CSS.  
 The project includes smooth animations, theme switching (Dark & Light mode), and working email integration for contact and newsletter subscriptions.
 
-##Live website 
-digitalagency-woad.vercel.app
 
 ## Features
 
